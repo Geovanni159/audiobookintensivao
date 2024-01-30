@@ -6,6 +6,7 @@ body {
   flex-direction: column;
   align-items: center;
   color: #d6d6ea;
+  margin: 0px;
 }
 
 .container-aplicativo {
