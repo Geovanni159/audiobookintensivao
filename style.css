@@ -7,6 +7,7 @@ body {
   align-items: center;
   color: #d6d6ea;
   margin: 0px;
+  box-sizing: border-box;
 }
 
 .container-aplicativo {
@@ -74,3 +75,24 @@ progress{
 .temp{
   margin: -5px 10px;
 }
+
+
+@media screen and (max-width: 350px) {
+ img{
+  height: 250px;
+ }
+
+ .duracao{
+  width: 310px;
+ }
+}
+
+@media screen and (max-width: 375px) {
+  img{
+   height: 250px;
+  }
+ 
+  .duracao{
+   width: 310px;
+  }
+ }
