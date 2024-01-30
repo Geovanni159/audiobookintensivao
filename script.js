@@ -8,6 +8,14 @@ const numeroCapitulos = 10;
 let taTocando = 0;
 let capituloAtual = 1;
 
+
+
+function mudarTotal(){
+  let duracaoAudio = document.getElementById("total")
+duracaoAudio.textContent = segundosParaMinutos (Math.floor(audioCapitulo.duration))
+
+}
+
 function tocarFaixa() {
   audioCapitulo.play();
   botaoPlayPause.classList.remove("bi-play-circle-fill");
@@ -39,10 +47,11 @@ function proximaFaixa() {
     capituloAtual = capituloAtual + 1;
   }
 
+  
   audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + ".mp3";
   tocarFaixa();
   taTocando = 1;
-  tocarNomeFaixa()
+  tocarNomeFaixa();
 }
 
 function voltarFaixa() {
@@ -55,9 +64,34 @@ function voltarFaixa() {
   audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + ".mp3";
   tocarFaixa();
   taTocando = 1;
-  tocarNomeFaixa()
+  tocarNomeFaixa();
 }
 
+function atualizarbarra() {
+  let barra = document.querySelector('progress');
+  barra.style.width = 
+    ((audioCapitulo.currentTime / audioCapitulo.duration) * 100) +
+    "%";
+    let tempoDecorrido = document.getElementById("atual")
+    tempoDecorrido.innerText = segundosParaMinutos (Math.floor (audioCapitulo.currentTime))
+}
+
+function segundosParaMinutos(segundos){
+  let campoMinutos = Math.floor(segundos/60);
+  let campoSegundos = segundos % 60;
+
+  if(campoSegundos < 10){
+    campoSegundos = '0' + campoSegundos
+  }
+  return campoMinutos + ":" + campoSegundos
+}
+
+
+
+
+setInterval(mudarTotal, 1)
+
+setInterval(atualizarbarra, 10)
 botaoPlayPause.addEventListener("click", tocarOuPausar);
 botaoAvancar.addEventListener("click", proximaFaixa);
 botaoVoltar.addEventListener("click", voltarFaixa);

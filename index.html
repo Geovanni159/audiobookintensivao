@@ -19,11 +19,18 @@
         </div>
         <audio id="audio-capitulo" src="./books/dom-casmurro/1.mp3"></audio>
         <div id="container-botoes">
-            <button id="anterior" class="bi bi-skip-backward-fill"></i></button>
+            <button onclick="mudarTotal()" id="anterior" class="bi bi-skip-backward-fill"></i></button>
             <button id="play-pause" class="bi bi-play-circle-fill"></i></button>
-            <button id="proximo" class="bi bi-skip-forward-fill"></i></button>
+            <button  onclick="mudarTotal()"  id="proximo" class="bi bi-skip-forward-fill"></i></button>
+        </div>
+        <div class="duracao">
+          <p class="temp" id="atual">0:00</p>
+          <div class="barra" id="barra">
+            <progress value="" max="1" id="progress"></progress>
+          </div>
+          <p class="temp" id="total">0:00</p>
         </div>
     </div>
-    <script src="./script.js"></script>
+    <script src="./script.js" defen></script>
   </body>
 </html>
